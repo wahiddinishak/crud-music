@@ -1,0 +1,47 @@
+﻿@model crud_music.Models.artist
+
+    <form asp-action="" asp-controller="" id="frmArtis">
+        <input asp-for="artisID" class="d-none">
+        <div class="form-group row">
+            <label asp-for="artisName" class="col-sm-2 col-form-label col-form-label-sm"></label>
+            <div class="col-sm-10">
+                <input asp-for="artisName" class="form-control form-control-sm">
+                <span asp-validation-for="artisName" class="badge badge-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="albumName" class="col-sm-2 col-form-label col-form-label-sm"></label>
+            <div class="col-sm-10">
+                <input asp-for="albumName" class="form-control form-control-sm">
+                <span asp-validation-for="albumName" class="badge badge-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="imageURL" class="col-sm-2 col-form-label col-form-label-sm"></label>
+            <div class="col-sm-10">
+                <input type="url" asp-for="imageURL" class="form-control form-control-sm">
+                <span asp-validation-for="imageURL" class="badge badge-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="releaseDate" class="col-sm-2 col-form-label col-form-label-sm"></label>
+            <div class="col-sm-10">
+                <input type="date" asp-for="releaseDate" class="form-control form-control-sm">
+                <span asp-validation-for="releaseDate" class="badge badge-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="price" class="col-sm-2 col-form-label col-form-label-sm"></label>
+            <div class="col-sm-10">
+                <input type="number" asp-for="price" class="form-control form-control-sm">
+                <span asp-validation-for="price" class="badge badge-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="sampleURL" class="col-sm-2 col-form-label col-form-label-sm"></label>
+            <div class="col-sm-10">
+                <input type="url" asp-for="sampleURL" class="form-control form-control-sm">
+                <span asp-validation-for="sampleURL" class="badge badge-danger"></span>
+            </div>
+        </div>
+    </form>
