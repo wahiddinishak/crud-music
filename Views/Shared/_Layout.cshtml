@@ -3,9 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - crud_music</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <title>@ViewData["Title"]</title>
+
+    <link href="@Url.Content("~/lib/bootstrap/dist/css/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/css/site.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/lib/datatable/dataTables.bootstrap4.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/lib/datatable/buttons.bootstrap4.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/lib/datatable/select.dataTables.min.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/lib/sweetalert/sweetalert2.css")" rel="stylesheet" />
+
 </head>
 <body>
     <header>
@@ -15,7 +23,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                </button>                
+                </button>
             </div>
         </nav>
     </header>
@@ -30,9 +38,18 @@
             &copy; 2020 - Wahiddin Ishak
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="@Url.Content("~/lib/jquery/dist/jquery.min.js")"></script>
+
+    <script src="@Url.Content("~/lib/bootstrap/dist/js/bootstrap.bundle.min.js")"></script>
+
+    <script src="@Url.Content("~/lib/datatable/jquery.dataTables.min.js")"></script>
+    <script src="@Url.Content("~/lib/datatable/dataTables.bootstrap4.min.js")"></script>
+
+    <script src="@Url.Content("~/lib/sweetalert/sweetalert2.js")"></script>
+
+    <script src="@Url.Content("~/js/site.js")"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

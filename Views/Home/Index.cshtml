@@ -2,8 +2,135 @@
     ViewData["Title"] = "CRUD Music";
 }
 
-<div class="text-center">
-    
-    @*datatable here*@
-
+<div class="card">
+    <div class="card-header">
+        <button class="btn btn-primary" onclick="$('#AddEditModal').modal('show');">Add New</button>
+    </div>
+    <div class="card-body">
+        <div class="hoverable-data-table">
+            <table id="tbl" class="table table-hover nowrap" style="width:100%"></table>
+        </div>
+    </div>
 </div>
+
+
+<!-- Add / Edit -->
+<div class="modal fade" id="AddEditModal" tabindex="-1" role="dialog" aria-labelledby="AddEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Manage Music</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Lorem Ipsum
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Views -->
+<div class="modal fade" id="ViewtModal" tabindex="-1" role="dialog" aria-labelledby="ViewtModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Music</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Details Data
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            ViewArtis();
+        });
+
+        function ViewArtis() {
+            var table = $('#tbl').DataTable({
+                processing: true,
+                serverSide: true,
+                ordering: false,
+                ajax: {
+                    url: '@Url.Action("getArtis","Home")',
+                    type: "POST",
+                    datatype: "json"
+                },
+                columns: [
+                    { data: "artisID", title: "Num.", autoWidth: true, visible: false },
+                    { data: "albumName", title: "Album Name", autoWidth: true },
+                    { data: "artisName", title: "Artis Name", autoWidth: true },
+                    { data: "releaseDate", title: "Date Release", autoWidth: true },
+                    { data: "sampleURL", title: "Sample Audio", autoWidth: true },
+                    { data: "price", title: "Price", autoWidth: true },
+                    {
+                        data: null,
+                        autoWidth: true,
+                        render: function () {
+                            return '<button type="button" class="btn btn-primary dropdown-toggle btn-sm" data-toggle="dropdown">Action</button><div class="dropdown-menu"><a class="dropdown-item" id="edit">Edit</a><a class="dropdown-item" id="delete">Delete</a></div>';
+                        },
+                        targets: -1
+                    }
+                ]
+            });
+
+            $('#tbl tbody').on('click', '#edit', function () {
+                var data = table.row($(this).parents('tr')).data();
+                // window.location.href = "/master/wizardCheck?id="+data["id"]+"&group="+data["unitKerja"]+"";
+                alert(data["id"]);
+            });
+
+            $('#tbl tbody').on('click', '#delete', function () {
+                var data = table.row($(this).parents('tr')).data();
+                @*Swal.fire({
+                    title: 'Are you sure you want to delete data ?',
+                    text: "You cannot restore this data !",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes',
+                    cancelButtonText: 'No'
+                }).then((result) => {
+                    if (result.value) {
+                        $.post('@Url.Action("","Master")', { id: data["id"] }, function (result) {
+                            if (result !== '00') {
+                                Swal.fire(
+                                    'Error !',
+                                    '' + result + '',
+                                    'error'
+                                );
+                            }
+                            else {
+                                Swal.fire(
+                                    'Deleted !',
+                                    'Data has been deleted.',
+                                    'success'
+                                );
+
+                                $('#tbl').DataTable().ajax.reload();
+                            }
+                        });
+                    }
+                });*@
+            });
+        }
+
+    </script>
+
+}
