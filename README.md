@@ -1,10 +1,7 @@
 # CRUD Music
-Sebuah aplikasi CRUD (Create, Read , Update) menggunakan .NET Core Framework
-Nama database dbmusic dan table Artists
+Aplikasi CRUD (Create, Retrive , Update, dan Delete) menggunakan .NET Core Framework
 
-# Spesifikasi
+## Spesifikasi
 * BackEnd : C# (NETCore 3.1)
 * FrontEnd : Javascript, JQuery, Bootstrap 4.x
-* Lib : Datatable Jquery, Moment.JS, Sweet Alert 2, JQuery Validation.
-* DB : SQL Server 2019, Entity Framework Core, Code First.
-* DB Script : https://drive.google.com/file/d/1ixRlcJ0CRorYOHQGulzT_6zNLTb5o_Mi/view?usp=sharing
+* Lib : Datatable Jquery, Moment.JS, Sweet Alert 2, JQuery Validation
